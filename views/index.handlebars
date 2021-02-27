@@ -1,0 +1,21 @@
+<h1>EAT-DA-BURGER</h1>
+
+{{!-- List of burgers not eaten --}}
+<h2>Burgers ready to eat!</h2>
+<ul>
+    {{#each burgers}}
+        {{#unless devoured}}
+            {{> burgers/burger-block devour=true}}
+        {{/unless}}
+    {{/each}}
+</ul>
+
+{{!-- List of burgers eaten --}}
+<h2>Burgers I've eaten!</h2>
+<ul>
+    {{#each burgers}}
+        {{#if devoured}}
+            {{> burgers/burger-block devour=false}}
+        {{/if}}
+    {{/each}}
+</ul>
