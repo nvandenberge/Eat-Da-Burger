@@ -7,6 +7,11 @@ const burger = {
       cb(res);
     });
   },
+  create: (cols, vals, cb) => {
+    orm.create("burgers", cols, vals, (res) => {
+      cb(res);
+    });
+  }
 };
 
 // Export the database functions for the controller (burgers_controller.js).
