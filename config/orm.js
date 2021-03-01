@@ -62,6 +62,16 @@ const orm = {
         }
         cb(result);
       });
+    },
+
+    delete: (tableInput, condition, cb) => {
+      let query = `DELETE FROM ${tableInput} WHERE ${condition}`;
+      db.query(query, (err, result) => {
+        if (err) {
+          throw err;
+        }
+        cb(result);
+      });
     }
 };
 
