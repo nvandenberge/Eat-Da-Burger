@@ -3,11 +3,31 @@ const db = require("../config/connection.js");
 
 // Helper function for SQL syntax
 // Loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string
-function printQuestionMarks(num) {
+const printQuestionMarks = (num) => {
     let arr = [];
-    for (var i = 0; i < num; i++) {
+    for (let i = 0; i < num; i++) {
         arr.push(`?`);
     }
+    return arr.toString();
+  }
+
+  const objToSql = (obj) => {
+    let arr = [];
+  
+    // Loop through the keys and push the key/value as a string int arr
+    for (let key in obj) {
+      let value = obj[key];
+      // Check to skip hidden properties
+      if (Object.hasOwnProperty.call(obj, key)) {
+        // If string with spaces, add quotations
+        if (typeof value === "string" && value.indexOf(" ") >= 0) {
+          value = "'" + value + "'";
+        }
+        // e.g. {devoured: true} => ["devoured=true"]
+        arr.push(key + "=" + value);
+      }
+    }
+    // Translate array of strings to a single comma-separated string
     return arr.toString();
   }
 
@@ -27,6 +47,16 @@ const orm = {
       let query = `INSERT INTO ${tableInput} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
       console.log(query)
       db.query(query, vals, (err, result) => {
+        if (err) {
+          throw err;
+        }
+        cb(result);
+      });
+    },
+
+    update: (tableInput, objColVals, condition, cb) => {
+       let query = `UPDATE ${tableInput} SET ${objToSql(objColVals)} WHERE ${condition}`;
+       db.query(query, (err, result) => {
         if (err) {
           throw err;
         }

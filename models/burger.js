@@ -11,6 +11,11 @@ const burger = {
     orm.create("burgers", cols, vals, (res) => {
       cb(res);
     });
+  },
+  update: (objColVals, condition, cb) => {
+    orm.update("burgers", objColVals, condition, (res) => {
+      cb(res);
+    })
   }
 };
 
