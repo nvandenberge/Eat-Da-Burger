@@ -20,7 +20,7 @@ Create a list of burgers you wish to devour by entering the burger's name in the
 4. You may use the schema.sql & seed.sql file to create a sample database. Open your local SQL database manager and run the schema.sql first, after it succeds, run the seed.sql file to insert the data.
 5. Prior to starting the application, update the database connection information in the config/connection.js file.
 6. In your terminal, run 'node server' to start the application.
-7. Open you browser and visit 'localhost:8080' to view application.
+7. Open you browser and visit 'localhost:3000' to view application.
 
 ## Usage
 ![Eat-Da-Burger Preview](/public/assets/img/eatDaBurger.gif)
