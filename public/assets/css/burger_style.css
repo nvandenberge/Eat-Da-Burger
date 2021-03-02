@@ -1,0 +1,76 @@
+body {
+    background-color:goldenrod ;
+    padding: 0;
+    margin: 0;
+}
+
+.title {
+    margin: 0 0 2rem 0;
+    color:crimson;
+}
+
+.burgerLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 2rem 0;
+}
+
+h2 {
+    text-decoration: underline;
+    text-align: center;
+}
+
+.availBurgers {
+    background-color: #e9ecef;
+    color: #495057;
+    border: 1px solid #ced4da;
+    list-style: none;
+    text-align: center;
+    border-radius: 3px;
+    height: calc(1.5em + .75rem + 2px);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul > li {
+    list-style: none;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.addBurgerForm {
+    margin: 2rem 0 0 0;
+    padding: 2rem 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addBurgerBtn {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.burger-input {
+    border-radius: 3px;
+    padding: 10px;
+    text-align: center;
+}
+
+.change-devour {
+    margin-left: 2rem;
+    margin-top: 3px;
+    border-radius: 3px;
+}
+
+#addBurgerText {
+    text-align: center;
+    margin-bottom: 2rem;
+}

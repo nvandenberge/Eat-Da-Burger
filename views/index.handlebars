@@ -1,5 +1,8 @@
-<div class="container">
-    <h1 class="text-center">EAT-DA-BURGER!</h1>
+<main class="container">
+    <div class="burgerLogo">
+        <img src="/assets/img/burger.png" alt="burger logo">
+    </div>
+    <h1 class="text-center title">EAT-DA-BURGER!</h1>
     <div class="row">
         <div class="col-md-6">
             {{!-- List of burgers not eaten --}}
@@ -14,22 +17,26 @@
         </div>
         <div class="col-md-6">
             {{!-- List of burgers eaten --}}
-            <h2>Burgers I've Devoured!</h2>
+            <h2>Burgers Devoured!</h2>
             <ul>
                 {{#each burgers}}
                 {{#if this.devoured}}
-                <input class="form-control" type="text" placeholder="{{this.burger_name}}" readonly>
+                <input class="form-control burger-input" type="text" placeholder="{{this.id}}. {{this.burger_name}}"
+                    readonly>
                 {{/if}}
                 {{/each}}
             </ul>
         </div>
     </div>
-    <div class="row addBurger">
-        <form class="create-form" id="add-burger-form">
+    <div class="row addBurgerForm">
+        <form class="create-form">
             <div class="form-group">
-                <input type="text" id="burger" name="name" placeholder="Burger Name">
+                <input type="text" class="burger-input" id="burger" name="name" placeholder="Burger Name">
             </div>
-            <button class="btn btn-success" type="submit">Add Burger</button>
+            <div class="addBurgerBtn">
+                <button class="btn btn-success" type="submit">Add Burger</button>
+            </div>
         </form>
     </div>
-</div>
+    <div id="addBurgerText">Enter a burger you want to devour, then click the 'Add Burger' button!</div>
+</main>

@@ -1,8 +1,9 @@
 {{!-- Checks if each burger has been devoured, then adds to appropiate list --}}
-<li>
-	{{burger_name}}
-
+<span>
+<li class="availBurgers">
+	{{id}}. {{burger_name}}
 	<button class="change-devour btn-primary" data-id="{{id}}" data-newdevour="{{devour}}">
 		{{#if devour}}DEVOUR IT!{{/if}}
 	</button>
 </li>
+</span>
