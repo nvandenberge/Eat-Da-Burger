@@ -33,7 +33,7 @@ const printQuestionMarks = (num) => {
 
 // Object for all our SQL statement functions
 const orm = {
-  all: (tableInput, cb) => {
+  selectAll: (tableInput, cb) => {
     let query = `SELECT * FROM ${tableInput};`;
     db.query(query, (err, result) => {
       if (err) {
@@ -43,7 +43,7 @@ const orm = {
     });
   },
 
-  create: (tableInput, cols, vals, cb) => {
+  insertOne: (tableInput, cols, vals, cb) => {
       let query = `INSERT INTO ${tableInput} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
       console.log(query)
       db.query(query, vals, (err, result) => {
@@ -54,19 +54,9 @@ const orm = {
       });
     },
 
-    update: (tableInput, objColVals, condition, cb) => {
+    updateOne: (tableInput, objColVals, condition, cb) => {
        let query = `UPDATE ${tableInput} SET ${objToSql(objColVals)} WHERE ${condition}`;
        db.query(query, (err, result) => {
-        if (err) {
-          throw err;
-        }
-        cb(result);
-      });
-    },
-
-    delete: (tableInput, condition, cb) => {
-      let query = `DELETE FROM ${tableInput} WHERE ${condition}`;
-      db.query(query, (err, result) => {
         if (err) {
           throw err;
         }
