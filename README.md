@@ -23,6 +23,8 @@ Create a list of burgers you wish to devour by entering the burger's name in the
 7. Open you browser and visit 'localhost:3000' to view application.
 
 ## Usage
+Heroku Deployment: https://secret-sands-70294.herokuapp.com/
+
 ![Eat-Da-Burger Preview](/public/assets/img/eatDaBurger.gif)
 
 ## License
